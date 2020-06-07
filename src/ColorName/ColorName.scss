@@ -1,0 +1,22 @@
+.ColorName {
+  text-align: center;
+
+  p {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    code {
+      background: antiquewhite;
+      color: #87540f;
+      padding: 0 3px;
+    }
+
+    .color--red {
+      color: red;
+    }
+
+    .color--blue {
+      color: blue;
+    }
+  }
+}
