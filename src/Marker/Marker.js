@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './Marker.scss';
+import MarkerItem from './MarkerItem';
 
-class Marker extends Component {
+function Marker () {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			list: [
-				"First item",
-				"Second special item",
-				"Third item",
-				"Fourth special item",
-			]
-		};
+	const list=[
+		"First item",
+		"Second special item",
+		"Third item",
+		"Fourth special item",
+	]
+	const [input,setInput]=useState('')
+
+	const getInput = (e)=> {
+		setInput(e.target.value)
 	}
 
-	render() {
 		return (
 			<div className="Marker">
 				<p>
@@ -25,13 +25,15 @@ class Marker extends Component {
 					Apply the marker for <u>all items</u>.
 				</p>
 
-				<input type="text" placeholder="Text to marker..." />
+				<input type="text" placeholder="Text to marker..." onChange={getInput}/>
 				<ul>
-					{ /* The list should be here */ }
+					{list.map((item,index)=>{
+						return <MarkerItem key={index} value={item} markerValue={input}/>
+						
+					})}
 				</ul>
 			</div>
 		)
-	}
 }
 
 export default Marker;
